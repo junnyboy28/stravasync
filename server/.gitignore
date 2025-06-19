@@ -20,3 +20,5 @@ EOF
 
 # Add this line to server/.gitignore
 echo "firebase-service-account*.json" >> server/.gitignore
+
+firebase-service-account.json
