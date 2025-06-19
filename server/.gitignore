@@ -17,3 +17,6 @@ yarn-error.log*
 /build 
 /dist
 EOF
+
+# Add this line to server/.gitignore
+echo "firebase-service-account*.json" >> server/.gitignore
