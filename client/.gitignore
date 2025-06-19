@@ -1,0 +1,29 @@
+# Create client .gitignore
+cat > client/.gitignore << 'EOF'
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+package-lock.json
+
+# Testing
+/coverage
+
+# Production
+/build
+
+# Firebase config
+src/firebase.js
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Misc
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+EOF

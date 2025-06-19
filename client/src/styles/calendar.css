@@ -1,0 +1,259 @@
+.calendar-container {
+  max-width: 100%;
+  margin: 20px 0;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #f5f5f5;
+  padding: 10px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 2px;
+  border: 1px solid #ddd;
+}
+
+.calendar-day {
+  min-height: 100px;
+  border: 1px solid #eee;
+  padding: 5px;
+  position: relative;
+}
+
+.calendar-day.empty {
+  background-color: #f9f9f9;
+}
+
+.calendar-day.has-activities {
+  background-color: #f0f8ff;
+}
+
+.day-number {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-weight: bold;
+}
+
+.day-activities {
+  margin-top: 25px;
+}
+
+.activity {
+  background-color: #FC4C02; /* Strava orange */
+  color: white;
+  padding: 5px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.activity:hover {
+  opacity: 0.9;
+}
+
+.activity.run {
+  background-color: #4CAF50; /* Green */
+}
+
+.activity.ride {
+  background-color: #2196F3; /* Blue */
+}
+
+.activity.swim {
+  background-color: #00BCD4; /* Cyan */
+}
+
+.activity.yoga {
+  background-color: #9C27B0; /* Purple */
+}
+
+.activity.weighttraining {
+  background-color: #607D8B; /* Blue Grey */
+}
+
+.activity.hike {
+  background-color: #795548; /* Brown */
+}
+
+.activity.walk {
+  background-color: #009688; /* Teal */
+}
+
+.activity-name {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity-stats {
+  font-size: 10px;
+}
+
+.calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Activity modal */
+.activity-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.activity-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  max-width: 90%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #FC4C02;
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.activity.mock {
+  position: relative;
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+}
+
+.mock-badge {
+  font-size: 8px;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 1px 3px;
+  border-radius: 3px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* Add these styles for the new badges */
+
+.activity.indoor {
+  border-left: 3px solid #9C27B0;
+}
+
+.activity.commute {
+  border-left: 3px solid #FF9800;
+}
+
+.indoor-badge, .commute-badge {
+  font-size: 10px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* Add these styles for the updated forms and details */
+
+.detail-row {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.detail-row .label {
+  font-weight: bold;
+  width: 100px;
+}
+
+.detail-row .value {
+  flex: 1;
+}
+
+.detail-row.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: white;
+}
+
+.tag.commute {
+  background-color: #FF9800;
+}
+
+.tag.indoor {
+  background-color: #9C27B0;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: normal;
+}
