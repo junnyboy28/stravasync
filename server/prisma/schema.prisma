@@ -1,0 +1,54 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  firebaseUid   String   @unique
+  stravaToken   String?
+  refreshToken  String?
+  expiresAt     Int?     // Unix timestamp
+  activities    Activity[]
+  createdAt     DateTime @default(now())
+}
+
+model Activity {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  stravaId    BigInt   @unique    
+  name        String
+  type        String
+  distance    Float?   // in meters
+  movingTime  Int?     // in seconds
+  startDate   DateTime
+  calories    Float?
+  description String?  
+  perceivedExertion String? 
+  privateNotes String? 
+  isCommute   Boolean @default(false)
+  isIndoor    Boolean @default(false)
+  isMock      Boolean @default(false)
+  photos      Photo[]  // Add this line
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}
+
+model Photo {
+  id          String   @id @default(cuid())
+  activityId  String
+  activity    Activity @relation(fields: [activityId], references: [id])
+  stravaId    BigInt?
+  url         String
+  caption     String?
+  isPrimary   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
