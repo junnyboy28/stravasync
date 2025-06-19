@@ -33,4 +33,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-EOFserver/firebase-service-account.json
+EOF
